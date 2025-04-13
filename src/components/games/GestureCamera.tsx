@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
 import { 
@@ -256,7 +255,7 @@ const GestureCamera: React.FC<GestureCameraProps> = ({ onControlsChange, isActiv
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full h-auto">
       {/* Hidden video element for processing */}
       <video 
         ref={videoRef} 
@@ -268,17 +267,20 @@ const GestureCamera: React.FC<GestureCameraProps> = ({ onControlsChange, isActiv
       {/* Canvas to render camera with landmarks */}
       <canvas 
         ref={canvasRef} 
-        className="w-full h-full object-cover rounded-lg border-2 border-arcade-neon"
+        className="w-full h-auto object-cover rounded-lg border-2 border-arcade-neon"
       />
       
+      {/* Overlay for when the camera is off */}
       {!isCameraOn && (
         <div className="absolute inset-0 flex items-center justify-center bg-arcade-dark bg-opacity-80 rounded-lg">
-          <div className="text-center">
-            <p className="text-white mb-4">Camera access required for gesture controls</p>
+          <div className="text-center px-4">
+            <p className="text-white mb-4 text-sm sm:text-base">
+              Camera access is required for gesture controls.
+            </p>
             <button
               onClick={startCamera}
               className="bg-arcade-purple text-white py-2 px-4 rounded-md hover:bg-arcade-blue
-                        transition-colors duration-300"
+                        transition-colors duration-300 text-sm sm:text-base"
             >
               Start Camera
             </button>

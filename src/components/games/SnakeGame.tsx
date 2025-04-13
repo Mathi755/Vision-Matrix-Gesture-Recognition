@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
 
@@ -290,12 +289,12 @@ const SnakeGame: React.FC<SnakeGameProps> = ({
   }, []);
   
   return (
-    <div className="relative">
-      <canvas 
-        ref={canvasRef} 
-        width={width} 
+    <div className="relative w-full max-w-full h-auto">
+      <canvas
+        ref={canvasRef}
+        width={width}
         height={height}
-        className="game-canvas animate-game-border"
+        className="w-full h-auto max-w-full rounded-md border-2 border-arcade-neon"
       />
       {gameOver && (
         <button
